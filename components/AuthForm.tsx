@@ -15,7 +15,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-//1:20:26
+//1:41:35
 
 const formSchema = z.object({
   username: z.string().min(2).max(50),
@@ -24,6 +24,7 @@ const formSchema = z.object({
 import React from "react";
 import Link from "next/link";
 import { createAccount } from "@/lib/actions/user.actions";
+import OTPModal from "./OTPModal";
 
 type FormType = "sign-in" | "sign-up";
 
@@ -155,6 +156,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
           </div>
         </form>
       </Form>
+      { accountId && <OTPModal email={form.getValues('email')} accountId={accountId}/> }
     </>
   );
 };
