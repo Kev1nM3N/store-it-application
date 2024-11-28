@@ -4,7 +4,6 @@ import { getCurrentUser } from "@/lib/actions/user.actions";
 import { redirect } from "next/navigation";
 import Sidebar from "@/components/Sidebar";
 import React from "react";
-//2:02:00
 
 
 const Layout = async ({ children }: { children: React.ReactNode }) => {
@@ -14,10 +13,10 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
 
   return (
     <main className="flex h-screen">
-      <Sidebar />
+      <Sidebar {...currentUser}/>
 
       <section className="flex h-full flex-1 flex-col">
-        <MobileNavigation />
+        <MobileNavigation {...currentUser}/>
         <Header />
         <div className="main-content">{children}</div>
       </section>
